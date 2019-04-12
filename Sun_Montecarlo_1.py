@@ -2,7 +2,8 @@ import numpy as np
 from astropy.io import fits
 import random
 import matplotlib.pyplot as plt
-
+import time
+start = time.time()
 hdulist = fits.open('test.fit')
 
 data = hdulist[0].data
@@ -38,6 +39,6 @@ print(total,sun)
 
 s_sun = X*Y*(sun/total)
 print (s_sun)
-plt.imshow(data, cmap=plt.cm.viridis)
-plt.colorbar()
-plt.show()
+
+end = time.time()
+print ('run time=', end-start)
